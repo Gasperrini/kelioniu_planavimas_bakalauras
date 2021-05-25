@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
-/*use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Contracts\CategoryContract;
@@ -25,8 +25,8 @@ class CategoryController extends Controller
 
     public function showHome()
     {
-        $categories = Category::orderByRaw('-name ASC')->get()->nest();
+        $categories = Category::orderByRaw()->get()->nest();
     
         return view('site.pages.homepage', compact('categories'));
     }
-}*/
+}
