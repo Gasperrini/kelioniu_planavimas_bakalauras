@@ -25,7 +25,7 @@ class CategoryController extends Controller
 
     public function showHome()
     {
-        $categories = Category::orderByRaw()->get()->nest();
+        $categories = Category::get()->nest();
     
         return view('site.pages.homepage', compact('categories'));
     }
