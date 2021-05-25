@@ -15,10 +15,14 @@ class CreateJourneysTable extends Migration
     {
         Schema::create('journeys', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('slug');
             $table->string('start_point');
             $table->string('end_point');
             $table->string('start_time');
             $table->string('end_time');
+            $table->string('file_name');
+            $table->string('path');
             $table->timestamps();
         });
     }

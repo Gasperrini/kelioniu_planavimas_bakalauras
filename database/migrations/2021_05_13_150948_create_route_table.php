@@ -22,6 +22,7 @@ class CreateRouteTable extends Migration
             $table->string('end_point');
             $table->string('start_time');
             $table->string('end_time');
+            $table->string('url');
             $table->timestamps();
         });
     }
