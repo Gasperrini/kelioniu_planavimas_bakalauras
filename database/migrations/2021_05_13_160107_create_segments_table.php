@@ -16,8 +16,8 @@ class CreateSegmentsTable extends Migration
         Schema::create('segments', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('lat');
-            $table->string('lng');
+            $table->string('lat')->nullable();
+            $table->string('lng')->nullable();
             $table->string('arrival_time');
             $table->bigInteger('route_id')->index();
             $table->foreign('route_id')->references('route_code')->on('route');
