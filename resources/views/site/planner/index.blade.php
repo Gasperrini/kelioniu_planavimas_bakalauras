@@ -45,36 +45,18 @@
           ?>
         ];
 
-        /*var acc_markers = [
-          <?php 
-          /*if(isset($_GET['route_code'])){
-          $code = $_GET['route_code'];
-          foreach($accommodations as $acc){
-                      echo '["'.$acc->name.'", '.$acc->lat.', '.$acc->lng.'],';
-                    }
-          ?>*/
-        /*];
-
-        var land_markers = [
-          <?php */
-          /*if(isset($_GET['route_code'])){
-          $code = $_GET['route_code'];
-          foreach($landmarks as $land){
-                      echo '["'.$land->name.'", '.$land->lat.', '.$land->lng.'],';
-                    }
-          ?>*/
-        /*];*/
+        
 
 
         createRouteMarkers(route_markers, map);
         
-        document.getElementById("accommodation").addEventListener("click", () => {
+        /*document.getElementById("accommodation").addEventListener("click", () => {
           createAccMarkers(acc_markers, map);
         });
 
         document.getElementById("landmark").addEventListener("click", () => {
           createLandMarkers(land_markers, map);
-        });
+        });*/
         
         
 
