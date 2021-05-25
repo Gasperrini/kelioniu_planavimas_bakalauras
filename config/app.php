@@ -179,8 +179,6 @@ return [
         App\Providers\RepositoryServiceProvider::class,
         App\Providers\ViewComposerServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
-        LynX39\LaraPdfMerger\PdfMergerServiceProvider::class,
-        Tomsgu\PdfMerger\PdfCollection::class,
 
     ],
 
