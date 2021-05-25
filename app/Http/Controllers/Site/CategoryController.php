@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+/*namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
@@ -23,10 +23,10 @@ class CategoryController extends Controller
         return view('site.pages.category', compact('category'));
     }
 
-    /*public function showHome()
+    public function showHome()
     {
         $categories = Category::orderByRaw('-name ASC')->get()->nest();
     
         return view('site.pages.homepage', compact('categories'));
-    }*
-}
+    }
+}*/
