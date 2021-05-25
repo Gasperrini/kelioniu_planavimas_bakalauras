@@ -45,7 +45,7 @@
           ?>
         ];
 
-        var acc_markers = [
+        /*var acc_markers = [
           <?php 
           /*if(isset($_GET['route_code'])){
           $code = $_GET['route_code'];*/
@@ -63,7 +63,7 @@
                       echo '["'.$land->name.'", '.$land->lat.', '.$land->lng.'],';
                     }
           ?>
-        ];
+        ];*/
 
 
         createRouteMarkers(route_markers, map);
