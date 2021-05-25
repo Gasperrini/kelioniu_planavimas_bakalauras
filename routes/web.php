@@ -28,13 +28,14 @@ Route::post('/product/add/cart', 'Site\ProductController@addToCart')->name('prod
 Route::get('/cart', 'Site\CartController@getCart')->name('checkout.cart');
 Route::get('/cart/item/{id}/remove', 'Site\CartController@removeItem')->name('checkout.cart.remove');
 Route::get('/cart/clear', 'Site\CartController@clearCart')->name('checkout.cart.clear');
+Route::get('/planner', 'Site\PlannerController@show')->name('planner.index');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/my_journeys', 'Site\JourneyController@index')->name('journey.index');
     Route::get('/my_journeys/{slug}', 'Site\JourneyController@show')->name('journey.show');
     Route::get('/my_journeys/{slug}/pdf', 'Site\JourneyController@createPDF')->name('journey.pdf');
     Route::get('/my_journeys/download', 'Site\JourneyController@downloadFile')->name('journey.download');
-    Route::get('/planner', 'Site\PlannerController@show')->name('planner.index');
+    //Route::get('/planner', 'Site\PlannerController@show')->name('planner.index');
     Route::get('/planner/generated', 'Site\PlannerController@showUpdated')->name('planner.generated');
     Route::post('/planner/confirm', 'Site\PlannerController@confirmed')->name('planner.confirmed');
     Route::get('/checkout', 'Site\CheckoutController@getCheckout')->name('checkout.index');
