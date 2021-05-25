@@ -22,7 +22,6 @@
         "paypal/rest-api-sdk-php": "^1.14",
         "rguedes/pdfmerger": "^1.0",
         "spatie/laravel-medialibrary": "^8.0.0",
-        "tomsgu/pdf-merger": "^0.3.0",
         "typicms/nestablecollection": "^1.1"
     },
     "require-dev": {
