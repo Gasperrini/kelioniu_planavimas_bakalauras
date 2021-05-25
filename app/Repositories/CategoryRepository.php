@@ -139,8 +139,8 @@ class CategoryRepository extends BaseRepository implements CategoryContract
      */
     public function treeList()
     {
-        return Category::
-            get()
+        return Category::orderByRaw('name ASC')
+            ->get()
             ->nest()
             ->listsFlattened('name');
     }
