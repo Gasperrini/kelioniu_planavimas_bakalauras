@@ -15,7 +15,7 @@ class CreateRouteTable extends Migration
     {
         Schema::create('route', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('route_code')->index();
+            $table->bigInteger('route_code')->index()->unique();
             $table->string('name')->unique();
             $table->string('slug')->unique()->nullable();
             $table->string('start_point');
