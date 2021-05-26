@@ -316,6 +316,10 @@ var i = 0;
                       <tr>    
                               <td>{{$rot->name}}</th>
                               <td>{{$rot->start_time}}</th>
+                              <td>{{$rot->route_code}}</th>
+                              <td>{{$rot->start_point}}</th>
+                              <td>{{$rot->end_point}}</th>
+                              <td>{{$rot->end_time}}</th>
                               <td><form method="get" action="{{ route('planner.generated') }}">
                                 @csrf
                                 <input type="hidden"  name="route_code" value="{{$rot->route_code}}">
