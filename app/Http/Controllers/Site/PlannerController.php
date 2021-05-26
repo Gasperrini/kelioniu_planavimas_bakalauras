@@ -35,8 +35,9 @@ class PlannerController extends Controller
     public function showUpdated(Request $request)
     {
         $end_point = $request->end;
+        $route_id = $request->route_code;
         $route = DB::table('route')->get();
-        $segments = DB::table('segments')->get();
+        $segments = DB::table('segments')->where('route_id', 'LIKE', "%{$route_id}%")->get();
         $accommodations = DB::table('accommodation')->where('address', 'LIKE', "%{$end_point}%")->get();
         $landmarks = DB::table('landmark')->where('address', 'LIKE', "%{$end_point}%")->get();
         //$route = $this->routeRepository->findBySlug($slug);
