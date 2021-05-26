@@ -45,7 +45,22 @@
           ?>
         ];
 
-        
+        var acc_markers = [
+          <?php 
+          foreach($accommodations as $acc){
+                      echo '["'.$acc->name.'", '.$acc->lat.', '.$acc->lng.'],';
+                    }
+          ?>
+        ];
+
+        var land_markers = [
+          <?php 
+          foreach($landmarks as $land){
+                      echo '["'.$land->name.'", '.$land->lat.', '.$land->lng.'],';
+                    }
+          ?>
+        ];
+
 
 
         createRouteMarkers(route_markers, map);
