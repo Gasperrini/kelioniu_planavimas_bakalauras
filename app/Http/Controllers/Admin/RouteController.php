@@ -42,7 +42,7 @@ class RouteController extends BaseController
     {
         $response = Http::withHeaders([
             'secret-key' => '$2b$10$APDq0mxwrHh2KlXwpCEaJ.4xHXMqLNU7nwfDwKtZ9AxcxZziSS/tW'
-        ])->get('https://api.jsonbin.io/b/609d306d83c4596e5cac36d3/5');
+        ])->get('https://api.jsonbin.io/b/609d306d83c4596e5cac36d3/6');
 
         $route = json_decode($response->body());
             foreach($route as $r){
@@ -58,6 +58,8 @@ class RouteController extends BaseController
                     $segments = new Segment;
                     $segments->name = $seg->name;
                     $segments->arrival_time = $seg->arrival_time;
+                    $segments->lat = $seg->lat;
+                    $segments->lng = $seg->lng;
                     $segments->route_id = $r->route_code;
                     $segments->save();
                 }
