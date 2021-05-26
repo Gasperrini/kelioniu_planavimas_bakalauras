@@ -38,8 +38,9 @@
                   foreach($segments as $segment){
                     if($segment->route_id == $code){
                       echo '["'.$segment->name.'", '.$segment->lat.', '.$segment->lng.'],';
-                      dd($segment->lat);
+                      dd("gerai");
                     }
+                    else dd("negerai");
                   }
                 }
               }
