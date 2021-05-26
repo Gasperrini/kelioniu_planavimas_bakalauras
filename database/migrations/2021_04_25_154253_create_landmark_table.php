@@ -18,6 +18,9 @@ class CreateLandmarkTable extends Migration
             $table->string('name')->unique();
             $table->string('slug')->unique();
             $table->string('address')->nullable();
+            $table->string('lat', 255)->nullable();
+            $table->string('lng', 255)->nullable();
+            $table->string('url', 2083)->nullable();
             $table->timestamps();
         });
     }
