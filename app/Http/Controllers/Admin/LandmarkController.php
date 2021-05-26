@@ -40,7 +40,7 @@ class LandmarkController extends BaseController
     {
         $response = Http::withHeaders([
             'secret-key' => '$2b$10$APDq0mxwrHh2KlXwpCEaJ.4xHXMqLNU7nwfDwKtZ9AxcxZziSS/tW'
-        ])->get('https://api.jsonbin.io/b/609018e392cb9267d0cb1794/3');
+        ])->get('https://api.jsonbin.io/b/609018e392cb9267d0cb1794/5');
 
         $landmark = json_decode($response->body());
             foreach($landmark as $land){

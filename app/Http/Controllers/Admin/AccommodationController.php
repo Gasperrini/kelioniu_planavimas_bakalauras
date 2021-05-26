@@ -40,7 +40,7 @@ class AccommodationController extends BaseController
     {
         $response = Http::withHeaders([
             'secret-key' => '$2b$10$APDq0mxwrHh2KlXwpCEaJ.4xHXMqLNU7nwfDwKtZ9AxcxZziSS/tW'
-        ])->get('https://api.jsonbin.io/b/60901930d64cd16802a85dbc/4');
+        ])->get('https://api.jsonbin.io/b/60901930d64cd16802a85dbc/5');
 
         $accommodation = json_decode($response->body());
             foreach($accommodation as $acc){

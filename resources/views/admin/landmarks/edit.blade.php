@@ -24,6 +24,18 @@
                             <label class="control-label" for="address">Adresas</label>
                             <textarea class="form-control" rows="4" name="address" id="address">{{ old('address', $landmark->address) }}</textarea>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label" for="address">lat</label>
+                            <textarea class="form-control" rows="4" name="lat" id="lat">{{ old('lat', $landmark->lat) }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="address">lng</label>
+                            <textarea class="form-control" rows="4" name="lng" id="lng">{{ old('lng', $landmark->lng) }}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="address">url</label>
+                            <textarea class="form-control" rows="4" name="url" id="url">{{ old('url', $landmark->url) }}</textarea>
+                        </div>
                         </div>
                     </div>
                     <div class="tile-footer">
