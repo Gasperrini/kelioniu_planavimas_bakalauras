@@ -41,9 +41,17 @@
                     @foreach($segments as $segment)
                     @if($segment->route_id == $route->route_code)
                     <div class="tile-body">
+                    <div class="form-group">
+                            <label class="control-label" for="id">id<span class="m-l-5 text-danger"> *</span></label>
+                            <input class="form-control @error('id') is-invalid @enderror" type="text" name="id" id="id" value="{{ old('id', $segment->route_id) }}"/>
+                        </div>
                         <div class="form-group">
                             <label class="control-label" for="stop">Stotele<span class="m-l-5 text-danger"> *</span></label>
                             <input class="form-control @error('stop') is-invalid @enderror" type="text" name="stop" id="stop" value="{{ old('stop', $segment->name) }}"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="arrival_time">Atvykimo laikas<span class="m-l-5 text-danger"> *</span></label>
+                            <input class="form-control @error('arrival_time') is-invalid @enderror" type="text" name="arrival_time" id="arrival_time" value="{{ old('arrival_time', $segment->arrival_time) }}"/>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="arrival_time">Atvykimo laikas<span class="m-l-5 text-danger"> *</span></label>
