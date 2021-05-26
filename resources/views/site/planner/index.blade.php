@@ -65,13 +65,13 @@
 
         createRouteMarkers(route_markers, map);
         
-        /*document.getElementById("accommodation").addEventListener("click", () => {
+        document.getElementById("accommodation").addEventListener("click", () => {
           createAccMarkers(acc_markers, map);
         });
 
         document.getElementById("landmark").addEventListener("click", () => {
           createLandMarkers(land_markers, map);
-        });*/
+        });
         
         
 

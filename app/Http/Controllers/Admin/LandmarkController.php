@@ -47,6 +47,10 @@ class LandmarkController extends BaseController
                 $landmark = new Landmark;
                 $landmark->name = $land->name;
                 $landmark->address = $land->address;
+                $landmark->lat = $land->lat;
+                $landmark->lng = $land->lng;
+                $landmark->url = $land->url;
+
                 $landmark->save();
             }
         

@@ -12,7 +12,7 @@ class Accommodation extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'name', 'slug', 'address'
+        'name', 'slug', 'address', 'lat', 'lng', 'url'
     ];
     // protected $hidden = [];
     // protected $dates = [];

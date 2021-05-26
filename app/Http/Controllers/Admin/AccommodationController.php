@@ -47,6 +47,9 @@ class AccommodationController extends BaseController
                 $accommodation = new accommodation;
                 $accommodation->name = $acc->name;
                 $accommodation->address = $acc->address;
+                $accommodation->lat = $acc->lat;
+                $accommodation->lng = $acc->lng;
+                $accommodation->url = $acc->url;
                 $accommodation->save();
             }
         
