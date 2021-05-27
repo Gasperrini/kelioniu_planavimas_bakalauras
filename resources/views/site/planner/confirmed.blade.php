@@ -16,7 +16,7 @@
 <br>
 <br>
 <br>
-<button type="button" class="btn btn-primary"><a href="{{ route('planner.index') }}">Planuoti naują kelionę</a></button>
+<a href="{{ route('planner.index') }}"><button type="button" class="btn btn-primary">Planuoti naują kelionę</button></a>
 
 </div>
 </div>

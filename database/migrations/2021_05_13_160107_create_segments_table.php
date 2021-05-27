@@ -20,7 +20,7 @@ class CreateSegmentsTable extends Migration
             $table->string('lng')->nullable();
             $table->string('arrival_time');
             $table->bigInteger('route_id')->index();
-            $table->foreign('route_id')->references('route_code')->on('route');
+            $table->foreign('route_id')->references('route_code')->on('route')->onDelete('cascade');
             $table->timestamps();
         });
     }

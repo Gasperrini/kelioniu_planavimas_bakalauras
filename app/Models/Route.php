@@ -12,7 +12,7 @@ class Route extends Model
     // public $timestamps = false;
     protected $guarded = ['id'];
     protected $fillable = [
-        'route_code', 'name', 'slug', 'start_point', 'end_point', 'start_time', 'end_time'
+        'route_code', 'name', 'slug', 'start_point', 'end_point', 'start_time', 'end_time', 'transport'
     ];
     // protected $hidden = [];
     // protected $dates = [];

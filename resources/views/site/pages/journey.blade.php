@@ -6,28 +6,13 @@
         <h2 class="title-page">{{ $journey->name }}</h2>
     </div>
 </section>
-<section class="section-content bg padding-y">
-    <div class="container">
-        <div id="code_prod_complex">
-            <div class="row">
-                    <div class="col-md-4">
-                        <figure class="card card-product">
-                            <figcaption class="info-wrap">
-                                <h4 class="title">{{ $journey->name }}</h4>
-                            </figcaption>
-                        </figure>
-                    </div>
-            </div>
-        </div>
-    </div>
-</section>
 <table class="table" id="land_table">
                     <thead>
                         <tr>
-                        <th scope="col">Isvykimo laikas</th>
-                        <th scope="col">Grizimo laikas</th>
-                        <th scope="col">Keliones pradzia</th>
-                        <th scope="col">Keliones pabaiga</th>
+                        <th scope="col">Išvykimo laikas</th>
+                        <th scope="col">Grįžimo laikas</th>
+                        <th scope="col">Išvykimas iš:</th>
+                        <th scope="col">Atvykimas į:</th>
                         </tr>
                     </thead>
                     <tbody>

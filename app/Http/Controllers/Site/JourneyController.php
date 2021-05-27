@@ -21,9 +21,17 @@ class JourneyController extends Controller
     
     public function index()
     {
-        $journeys = DB::table('journeys')->get();
+        $user_id = auth()->user()->id;
+        $journeys = DB::table('journeys')->where('user_id', 'LIKE', $user_id)->get();
     
         return view('site.planner.journeys', compact('journeys'));
+    }
+
+    public function delete($id)
+    {
+        $journey = $this->journeyRepository->deleteJourney($id);
+
+        return redirect()->route('journey.index');
     }
 
     public function show($slug)

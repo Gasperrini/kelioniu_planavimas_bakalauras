@@ -3,8 +3,8 @@
 @section('content')
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-tags"></i> {{ $pageTitle }}</h1>
-            <p>{{ $subTitle }}</p>
+            <h1><i class="fa fa-tags"></i> Transporto įmonės</h1>
+            <p>Transporto įmonių sąrašas</p>
         </div>
         <a href="{{ route('admin.transports.fetch') }}" class="btn btn-primary pull-right">Importuoti duomenis</a>
         <a href="{{ route('admin.transports.create') }}" class="btn btn-primary pull-right">Pridėti</a>
@@ -19,7 +19,7 @@
                             <tr>
                                 <th> Pavadinimas </th>
                                 <th class="text-center"> Adresas </th>
-                                <th class="text-center"> El. pastas </th>
+                                <th class="text-center"> El. paštas </th>
                                 <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                             </tr>
                         </thead>

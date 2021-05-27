@@ -15,13 +15,29 @@
                     @csrf
                     <div class="tile-body">
                         <div class="form-group">
-                            <label class="control-label" for="name">Pavadinimas <span class="m-l-5 text-danger"> *</span></label>
-                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name') }}"/>
+                            <label class="control-label" for="name">Pavadinimas </label>
+                            <input required class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name') }}"/>
                             @error('name') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="address">Adresas</label>
-                            <textarea class="form-control" rows="4" name="address" id="address">{{ old('address') }}</textarea>
+                            <input required class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" value="{{ old('address') }}"/>
+                            @error('address') {{ $message }} @enderror
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="lat">Platuma</label>
+                            <input required class="form-control @error('lat') is-invalid @enderror" type="text" name="lat" id="lat" value="{{ old('lat') }}"/>
+                            @error('lat') {{ $message }} @enderror
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="lng">Ilguma</label>
+                            <input required class="form-control @error('lng') is-invalid @enderror" type="text" name="lng" id="lng" value="{{ old('lng') }}"/>
+                            @error('lng') {{ $message }} @enderror
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="url">Svetainė</label>
+                            <input class="form-control @error('url') is-invalid @enderror" type="text" name="url" id="url" value="{{ old('url') }}"/>
+                            @error('url') {{ $message }} @enderror
                         </div>
                     </div>
                     <div class="tile-footer">

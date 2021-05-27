@@ -6,7 +6,7 @@
             <h1><i class="fa fa-briefcase"></i> {{ $pageTitle }}</h1>
             <p>{{ $subTitle }}</p>
         </div>
-        <a href="{{ route('admin.brands.create') }}" class="btn btn-primary pull-right">Add Brand</a>
+        <a href="{{ route('admin.users.create') }}" class="btn btn-primary pull-right">Pridėti naudotoją</a>
     </div>
     @include('admin.partials.flash')
     <div class="row">
@@ -17,21 +17,23 @@
                         <thead>
                         <tr>
                             <th> # </th>
-                            <th> Name </th>
-                            <th> Slug </th>
+                            <th> Vardas </th>
+                            <th> Pavardė </th>
+                            <th> El. paštas </th>
                             <th style="width:100px; min-width:100px;" class="text-center text-danger"><i class="fa fa-bolt"> </i></th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($brands as $brand)
+                        @foreach($users as $user)
                             <tr>
-                                <td>{{ $brand->id }}</td>
-                                <td>{{ $brand->name }}</td>
-                                <td>{{ $brand->slug }}</td>
+                                <td>{{ $user->id }}</td>
+                                <td>{{ $user->first_name }}</td>
+                                <td>{{ $user->last_name }}</td>
+                                <td>{{ $user->email }}</td>
                                 <td class="text-center">
                                     <div class="btn-group" role="group" aria-label="Second group">
-                                        <a href="{{ route('admin.brands.edit', $brand->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
-                                        <a href="{{ route('admin.brands.delete', $brand->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-sm btn-primary"><i class="fa fa-edit"></i></a>
+                                        <a href="{{ route('admin.users.delete', $user->id) }}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </td>
                             </tr>

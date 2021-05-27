@@ -39,7 +39,6 @@
                     if($segment->route_id == $code){
                       echo '["'.$segment->name.'", '.$segment->lat.', '.$segment->lng.'],';
                     }
-                    else dd("negerai");
                   }
                 }
               }
@@ -100,11 +99,25 @@
                 origin: new google.maps.Point(0,0), // origin
                 anchor: new google.maps.Point(0, 0) // anchor
             };
+            const contentString =
+            markers[i][0]
+
+            var infowindow = new google.maps.InfoWindow()
+    
+
+  
             marker = new google.maps.Marker({
                 position: position,
                 map: map,
                 icon: iconBase
             });
+
+            google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+        return function() {
+           infowindow.setContent(contentString);
+           infowindow.open(map,marker);
+        };
+    })(marker,content,infowindow));
         }
       }
 
@@ -118,11 +131,25 @@
                 origin: new google.maps.Point(0,0), // origin
                 anchor: new google.maps.Point(0, 0) // anchor
             };
+            const contentString =
+            markers[i][0]
+
+            var infowindow = new google.maps.InfoWindow()
+    
+
+  
             marker = new google.maps.Marker({
                 position: position,
                 map: map,
                 icon: iconBase
             });
+
+            google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 
+        return function() {
+           infowindow.setContent(contentString);
+           infowindow.open(map,marker);
+        };
+    })(marker,content,infowindow)); 
         }
       }
 
@@ -253,45 +280,51 @@ var i = 0;
     ?>
 
     <!--<div id="template0">-->
-            <div id="info_form" class="d-flex justify-content-center" style="margin-top: 80px; text-align:center">
+            <div id="info_form" class="d-flex justify-content-center" style="margin-top: 20px; text-align:center">
                 <form method="get" action="{{ route('planner.generated') }}">
-                <label class="sr-only" for="start_time">Kelionės pavadinimas</label>
-                @if(isset($_GET['name']))
-                    <?php $name = $_GET['name']; ?>
-                @endif
-                <input type="text" class="form-control mb-2 mr-sm-2" id="name" name="name" value="{{$name}}" placeholder="Kelionės pavadinimas" >
                 
-
-                <label class="sr-only" for="start_time">Kelionės pradžia</label>
+                
+                <div class="row">
+                <div class="col">
+                <label for="start_time">Pradžios data:</label>
                 @if(isset($_GET['start_time']))
                     <?php $start_time = $_GET['start_time']; ?>
                 @endif
-                <input type="text" class="form-control mb-2 mr-sm-2" id="start_time" name="start_time" value="{{$start_time}}" placeholder="Kelionės pradžia" >
-                <label class="sr-only" for="inlineFormInputName2">Kelionės pabaiga</label>
+                <input type="date" class="form-control mb-2 mr-sm-2" id="start_time" name="start_time" value="{{$start_time}}" placeholder="Kelionės pradžia" >
+      </div>
+      <div class="col">
+                <label for="end_time">Pabaigos data:</label>
                 @if(isset($_GET['end_time']))
                     <?php $end_time = $_GET['end_time']; ?>
                 @endif
-                <input type="text" class="form-control mb-2 mr-sm-2" id="end_time" name="end_time" value="{{$end_time}}" placeholder="Kelionės pabaiga" >
-                    
+                <input type="date" class="form-control mb-2 mr-sm-2" id="end_time" name="end_time" value="{{$end_time}}" placeholder="Kelionės pabaiga" >
+      </div>
+      </div>    
 
-                    <label class="sr-only" for="inlineFormInputName2">Iš kur keliaujate?</label>
                     @if(isset($_GET['start']))
                     <?php $start_value = $_GET['start']; ?>
                     @endif
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="start_point" name="start" value="{{$start_value}}" placeholder="Iš kur keliaujate?" >
+                    <input required type="text" class="form-control mb-2 mr-sm-2" id="start_point" name="start" value="{{$start_value}}" placeholder="Iš kur keliaujate?" >
 
                     <label class="sr-only" for="inlineFormInputName2">Kur keliaujate?</label>
                     @if(isset($_GET['end']))
                     <?php $end_value = $_GET['end']; ?>
                     @endif
-                    <input type="text" class="form-control mb-2 mr-sm-2" id="end_point" name="end" value="{{$end_value}}" placeholder="Kur keliaujate?" >
-                    <button type="submit" id="choose">Keliauti!</button>
+                    <input required type="text" class="form-control mb-2 mr-sm-2" id="end_point" name="end" value="{{$end_value}}" placeholder="Kur keliaujate?" >
+                    <button type="submit" id="choose">Sukurti maršrutą!</button>
                   </form>
             </div>
         
-            <div id="transport_form" class="d-flex justify-content-center" style="margin-top: 80px; text-align:center">
-              <button id="auto" class="btn btn-primary mb-2">Savas transportas</button>
-              <button id="bus" onclick="togBus()" class="btn btn-primary mb-2">Autobusas</button>
+            <h5 style="margin-top: 20px; text-align:center">Keliausiu su:</h5>
+            <div id="transport_form" class="d-flex justify-content-center" style="text-align:center; margin-bottom: 20px">
+            <div class="row">
+            <div class="col">
+              <button id="auto" class="btn btn-outline-secondary">Savo transportu</button>
+      </div>
+      <div class="col">
+              <button id="bus" onclick="togBus()" class="btn btn-outline-secondary">Autobusu</button>
+      </div>
+      </div>
             </div>
 
             <!--<div id="form" class="d-flex justify-content-center" style="margin-top: 80px; text-align:center">
@@ -302,25 +335,29 @@ var i = 0;
                     <div id="main_form">
         
             <div>
-            
-                <table class="table" id="bus_table" style="width:500px; display:none">
+            @if(isset($_GET['start']) && isset($_GET['end']))
+                    
+                <table class="table" id="bus_table" style="width:800px; display:none">
                     <thead>
                         <tr>
                         <th scope="col">Maršrutas</th>
                         <th scope="col">Išvykimo laikas</th>
+                        <th scope="col">Atvykimo laikas</th>
+                        <th scope="col">Transporto įmonė</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @if(isset($_GET['start']) && isset($_GET['end']))
                     @foreach($route as $rot)
                     @if($rot->start_point == $_GET['start'] && $rot->end_point == $_GET['end'])
                       <tr>    
                               <td>{{$rot->name}}</th>
                               <td>{{$rot->start_time}}</th>
-                              <td>{{$rot->route_code}}</th>
-                              <td>{{$rot->start_point}}</th>
-                              <td>{{$rot->end_point}}</th>
                               <td>{{$rot->end_time}}</th>
+                              @foreach($transports as $transport)
+                                        @if( $rot->transport == $transport->id)
+                                        <td>{{ $transport->name }}</th>
+                                        @endif
+                                        @endforeach
                               <td><form method="get" action="{{ route('planner.generated') }}">
                                 @csrf
                                 <input type="hidden"  name="route_code" value="{{$rot->route_code}}">
@@ -339,10 +376,9 @@ var i = 0;
                     @endif
                     </tbody>    
                 </table>
-                <button type="button" class="btn btn-primary"><input type="file">Pridėti PDF failą(-us)</input></button>
             </div>
 
-            <div id="accommodation_form" class="d-flex justify-content-center" style="margin-top: 80px; text-align:center">
+            <div id="accommodation_form" class="d-flex justify-content-center" style="margin-top: 20px; text-align:center">
                 <button type="button" id="accommodation" onclick="togAcc()" class="btn btn-primary mb-2">Nakvynės vietos</button>
               </div>
 
@@ -350,7 +386,7 @@ var i = 0;
 
             <div>
             
-                <table class="table" id="acc_table" style="width:500px; display:none">
+                <table class="table" id="acc_table" style=" display:none">
                     <thead>
                         <tr>
                         <th scope="col">Pavadinimas</th>
@@ -364,7 +400,6 @@ var i = 0;
                               <td>{{$acc->address}}</th>
                               <td><form method="get" action="{{ route('planner.generated') }}">
                                 @csrf
-                                <button type="submit" id="choose">Rodyti žemėlapyje</button>
                                 <button><a href="{{$acc->url}}" target="_blank">Rezervuoti</a></button>
                                
                             </form></th>
@@ -372,16 +407,15 @@ var i = 0;
                     @endforeach
                     </tbody>    
                 </table>
-                <button type="button" class="btn btn-primary">Pridėti PDF failą(-us)</button>
             </div>
 
-            <div id="landmark_form" class="d-flex justify-content-center" style="margin-top: 80px; text-align:center">
+            <div id="landmark_form" class="d-flex justify-content-center" style="margin-top: 20px; text-align:center">
                 <button type="button" id="landmark" onclick="togLand()" class="btn btn-primary mb-2">Lankytini objektai</button>
               </div>
 
             <div>
             
-                <table class="table" id="land_table" style="width:500px; display:none">
+                <table class="table" id="land_table" style="display:none">
                     <thead>
                         <tr>
                         <th scope="col">Pavadinimas</th>
@@ -398,7 +432,6 @@ var i = 0;
                                 <input type="hidden"  name="route_code" value="{{$rot->route_code}}">
                                 <input type="hidden"  name="start" value="{{$rot->start_point}}">
                                 <input type="hidden"  name="end" value="{{$rot->end_point}}">
-                                <button type="submit" id="choose">Rodyti žemėlapyje</button>
                                 <button><a href="{{$land->url}}" target="_blank">Plačiau</a></button>
                                
                             </form></th>
@@ -406,21 +439,25 @@ var i = 0;
                     @endforeach
                     </tbody>    
                 </table>
-                <button type="button" class="btn btn-primary">Pridėti PDF failą(-us)</button>
-            </div>
-<div style="text-align:right">
-            <button type="button" id="add_journey" onclick="addJourney()" class="btn btn-primary">Pridėti maršrutą</button>
-      </div>      <br><br><br>
+            </div>     <br>
 
       <!--</div>-->
       
       <div style="text-align:center">
       <form method="post" action="{{ route('planner.confirmed') }}" enctype="multipart/form-data">
       @csrf
-      <button type="button" class="btn btn-primary"><input type="file" name="file">Pridėti autobuso bilietą(-us)</input></button><br>
-      @if(isset($_GET['name']))
-            <input type="hidden" name="name" value="{{$_GET['name']}}">
-            @endif
+      <label for="bus_file">Pridėti autobuso bilietą(-us):</label><br>
+      <button type="button" class="btn btn-primary"><input type="file" name="bus_file"></input></button><br>
+      <label for="acc_file">Pridėti nakvynės vietos bilietą(-us):</label><br>
+      <button type="button" class="btn btn-primary"><input type="file" name="acc_file"></input></button><br>
+      <label for="land_file">Pridėti lankytino objekto bilietą(-us):</label><br>
+      <button type="button" class="btn btn-primary"><input type="file" name="land_file"></input></button><br>
+     <br> 
+     <h3>Įveskite kelionės pavadinimą</h3>
+      <div  class="d-flex justify-content-center">
+                <input type="text" class="form-control " style="width:500px" id="name" name="name" placeholder="Kelionės pavadinimas" required>
+      </div>
+      <br>
             @if(isset($_GET['start']))
                                 <input type="hidden" name="start" value="{{$_GET['start']}}">
                                 @endif

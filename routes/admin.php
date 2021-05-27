@@ -13,10 +13,10 @@ Route::group(['prefix'  =>  'admin'], function () {
         Route::get('/', function () {
             return view('admin.dashboard.index');
         })->name('admin.dashboard');
-        Route::get('/settings', 'Admin\SettingController@index')->name('admin.settings');
-        Route::post('/settings', 'Admin\SettingController@update')->name('admin.settings.update');
+        /*Route::get('/settings', 'Admin\SettingController@index')->name('admin.settings');
+        Route::post('/settings', 'Admin\SettingController@update')->name('admin.settings.update');*/
         
-        Route::group(['prefix'  =>   'categories'], function() {
+        /*Route::group(['prefix'  =>   'categories'], function() {
 
             Route::get('/', 'Admin\CategoryController@index')->name('admin.categories.index');
             Route::get('/create', 'Admin\CategoryController@create')->name('admin.categories.create');
@@ -25,9 +25,9 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::post('/update', 'Admin\CategoryController@update')->name('admin.categories.update');
             Route::get('/{id}/delete', 'Admin\CategoryController@delete')->name('admin.categories.delete');
         
-        });
+        });*/
 
-        Route::group(['prefix'  =>   'attributes'], function() {
+        /*Route::group(['prefix'  =>   'attributes'], function() {
 
             Route::get('/', 'Admin\AttributeController@index')->name('admin.attributes.index');
             Route::get('/create', 'Admin\AttributeController@create')->name('admin.attributes.create');
@@ -40,16 +40,16 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::post('/update-values', 'Admin\AttributeValueController@updateValues');
             Route::post('/delete-values', 'Admin\AttributeValueController@deleteValues');
 
-        });
+        });*/
 
-        Route::group(['prefix'  =>   'brands'], function() {
+        Route::group(['prefix'  =>   'users'], function() {
 
-            Route::get('/', 'Admin\BrandController@index')->name('admin.brands.index');
-            Route::get('/create', 'Admin\BrandController@create')->name('admin.brands.create');
-            Route::post('/store', 'Admin\BrandController@store')->name('admin.brands.store');
-            Route::get('/{id}/edit', 'Admin\BrandController@edit')->name('admin.brands.edit');
-            Route::post('/update', 'Admin\BrandController@update')->name('admin.brands.update');
-            Route::get('/{id}/delete', 'Admin\BrandController@delete')->name('admin.brands.delete');
+            Route::get('/', 'Admin\UserController@index')->name('admin.users.index');
+            Route::get('/create', 'Admin\UserController@create')->name('admin.users.create');
+            Route::post('/store', 'Admin\UserController@store')->name('admin.users.store');
+            Route::get('/{id}/edit', 'Admin\UserController@edit')->name('admin.users.edit');
+            Route::post('/update', 'Admin\UserController@update')->name('admin.users.update');
+            Route::get('/{id}/delete', 'Admin\UserController@delete')->name('admin.users.delete');
         
         });
 
@@ -84,17 +84,10 @@ Route::group(['prefix'  =>  'admin'], function () {
             Route::get('/edit/{id}', 'Admin\LandmarkController@edit')->name('admin.landmarks.edit');
             Route::post('/update', 'Admin\LandmarkController@update')->name('admin.landmarks.update');
             Route::get('/{id}/delete', 'Admin\LandmarkController@delete')->name('admin.landmarks.delete');
-           /* Route::post('images/upload', 'Admin\LandmarkImageController@upload')->name('admin.products.images.upload');
-            Route::get('images/{id}/delete', 'Admin\LandmarkImageController@delete')->name('admin.products.images.delete');*/
-            // Load attributes on the page load
             Route::get('attributes/load', 'Admin\ProductAttributeController@loadAttributes');
-            // Load product attributes on the page load
             Route::post('attributes', 'Admin\ProductAttributeController@productAttributes');
-            // Load option values for a attribute
             Route::post('attributes/values', 'Admin\ProductAttributeController@loadValues');
-            // Add product attribute to the current product
             Route::post('attributes/add', 'Admin\ProductAttributeController@addAttribute');
-            // Delete product attribute from the current product
             Route::post('attributes/delete', 'Admin\ProductAttributeController@deleteAttribute');
 
          });
@@ -135,9 +128,9 @@ Route::group(['prefix'  =>  'admin'], function () {
 
          });
 
-         Route::group(['prefix' => 'orders'], function () {
+         /*Route::group(['prefix' => 'orders'], function () {
             Route::get('/', 'Admin\OrderController@index')->name('admin.orders.index');
             Route::get('/{order}/show', 'Admin\OrderController@show')->name('admin.orders.show');
-         });
+         });*/
     });
 });

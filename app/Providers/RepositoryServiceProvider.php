@@ -23,6 +23,8 @@ use App\Contracts\RouteContract;
 use App\Repositories\RouteRepository;
 use App\Contracts\JourneyContract;
 use App\Repositories\JourneyRepository;
+use App\Contracts\UserContract;
+use App\Repositories\UserRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -37,6 +39,7 @@ class RepositoryServiceProvider extends ServiceProvider
         TransportContract::class            =>          TransportRepository::class,
         RouteContract::class            =>          RouteRepository::class,
         JourneyContract::class            =>          JourneyRepository::class,
+        UserContract::class            =>          UserRepository::class,
     ];
     /**
      * Register services.

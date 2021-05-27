@@ -31,5 +31,26 @@ class JourneyRepository extends BaseRepository implements JourneyContract
 
         return $journey;
     }
+
+    public function findJourneyById(int $id)
+    {
+        try {
+            return $this->findOneOrFail($id);
+
+        } catch (ModelNotFoundException $e) {
+
+            throw new ModelNotFoundException($e);
+        }
+
+    }
+
+    public function deleteJourney($id)
+    {
+        $journey = $this->findJourneyById($id);
+
+        $journey->delete();
+
+        return $journey;
+    }
 }
 

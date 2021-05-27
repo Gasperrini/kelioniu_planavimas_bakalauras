@@ -14,31 +14,31 @@
 </section>
 <section class="login-content">
     <div class="logo">
-        <h1>{{ config('app.name') }}</h1>
+        <h1>Kelionių planavimas</h1>
     </div>
     <div class="login-box">
         <form class="login-form" action="{{ route('admin.login.post') }}" method="POST" role="form">
             @csrf
-            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>SIGN IN</h3>
+            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Administratoriaus prisijungimas</h3>
             <div class="form-group">
-                <label class="control-label" for="email">Email Address</label>
-                <input class="form-control" type="email" id="email" name="email" placeholder="Email address" autofocus value="{{ old('email') }}">
+                <label class="control-label" for="email">El. paštas</label>
+                <input class="form-control" type="email" id="email" name="email" placeholder="El. paštas" autofocus value="{{ old('email') }}">
             </div>
             <div class="form-group">
-                <label class="control-label" for="password">Password</label>
-                <input class="form-control" type="password" id="password" name="password" placeholder="Password">
+                <label class="control-label" for="password">Slaptažodis</label>
+                <input class="form-control" type="password" id="password" name="password" placeholder="Slaptažodis">
             </div>
             <div class="form-group">
                 <div class="utility">
                     <div class="animated-checkbox">
                         <label>
-                            <input type="checkbox" name="remember"><span class="label-text">Stay Signed in</span>
+                            <input type="checkbox" name="remember"><span class="label-text">Prisiminti mane</span>
                         </label>
                     </div>
                 </div>
             </div>
             <div class="form-group btn-container">
-                <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN</button>
+                <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-sign-in fa-lg fa-fw"></i>Prisijungti</button>
             </div>
         </form>
     </div>

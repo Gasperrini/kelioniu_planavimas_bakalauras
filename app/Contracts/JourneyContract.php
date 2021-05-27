@@ -13,4 +13,8 @@ interface JourneyContract
     * @return mixed
     */
     public function findBySlug($slug);
+
+    public function findJourneyById(int $id);
+
+    public function deleteJourney($id);
 }

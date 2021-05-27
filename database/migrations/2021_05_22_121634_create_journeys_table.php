@@ -16,13 +16,19 @@ class CreateJourneysTable extends Migration
         Schema::create('journeys', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('slug');
             $table->string('start_point');
             $table->string('end_point');
             $table->string('start_time');
             $table->string('end_time');
-            $table->string('file_name')->nullable();
-            $table->string('path')->nullable();
+            $table->string('bus_file_name')->nullable();
+            $table->string('bus_path')->nullable();
+            $table->string('acc_file_name')->nullable();
+            $table->string('acc_path')->nullable();
+            $table->string('land_file_name')->nullable();
+            $table->string('land_path')->nullable();
             $table->timestamps();
         });
     }

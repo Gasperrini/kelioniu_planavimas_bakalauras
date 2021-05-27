@@ -7,12 +7,6 @@
                 <span class="app-menu__label">Pagrindinis</span>
             </a>
         </li>
-        <!--<li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.orders.index' ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">
-                <i class="app-menu__icon fa fa-bar-chart"></i>
-                <span class="app-menu__label">Kelionės</span>
-            </a>
-        </li>-->
         <li>
             <a class="app-menu__item {{ Route::currentRouteName() == 'admin.landmarks.index' ? 'active' : '' }}" href="{{ route('admin.landmarks.index') }}">
                 <i class="app-menu__icon fa fa-shopping-bag"></i>
@@ -38,28 +32,10 @@
             </a>
         </li>
         <li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.brands.index' ? 'active' : '' }}" href="{{ route('admin.brands.index') }}">
+            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.users.index' ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
                 <i class="app-menu__icon fa fa-briefcase"></i>
                 <span class="app-menu__label">Naudotojai</span>
             </a>
         </li>
-        <!--<li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.categories.index' ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
-                <i class="app-menu__icon fa fa-tags"></i>
-                <span class="app-menu__label">Categories</span>
-            </a>
-        </li>
-        <li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.attributes.index' ? 'active' : '' }}" href="{{ route('admin.attributes.index') }}">
-                <i class="app-menu__icon fa fa-th"></i>
-                <span class="app-menu__label">Attributes</span>
-            </a>
-        </li> -->
-        <!--<li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.settings' ? 'active' : '' }}" href="{{ route('admin.settings') }}">
-                <i class="app-menu__icon fa fa-cogs"></i>
-                <span class="app-menu__label">Svetaines nustatymai</span>
-            </a>
-        </li>-->
     </ul>
 </aside>

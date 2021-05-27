@@ -17,13 +17,13 @@
         </div>
     </div>
 </section>
-<table class="table" id="land_table">
+<table class="table table-bordered border-primary" id="land_table">
                     <thead>
                         <tr>
                         <th scope="col">Išvykimo laikas</th>
                         <th scope="col">Grįžimo laikas</th>
-                        <th scope="col">Kelionės pradžia</th>
-                        <th scope="col">Kelionės pabaiga</th>
+                        <th scope="col">Išvykimas iš:</th>
+                        <th scope="col">Atvykimas į:</th>
                         </tr>
                     </thead>
                     <tbody>

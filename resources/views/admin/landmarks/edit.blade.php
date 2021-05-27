@@ -15,26 +15,30 @@
                     @csrf
                     <div class="tile-body">
                         <div class="form-group">
-                            <label class="control-label" for="name">Pavadinimas <span class="m-l-5 text-danger"> *</span></label>
-                            <input class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name', $landmark->name) }}"/>
+                            <label class="control-label" for="name">Pavadinimas </label>
+                            <input required class="form-control @error('name') is-invalid @enderror" type="text" name="name" id="name" value="{{ old('name', $landmark->name) }}"/>
                             <input type="hidden" name="id" value="{{ $landmark->id }}">
                             @error('name') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="address">Adresas</label>
-                            <textarea class="form-control" rows="4" name="address" id="address">{{ old('address', $landmark->address) }}</textarea>
+                            <input required class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" value="{{ old('address', $landmark->address) }}"/>
+                            @error('address') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="address">lat</label>
-                            <textarea class="form-control" rows="4" name="lat" id="lat">{{ old('lat', $landmark->lat) }}</textarea>
+                            <label class="control-label" for="lat">Platuma</label>
+                            <input required class="form-control @error('lat') is-invalid @enderror" type="text" name="lat" id="lat" value="{{ old('lat', $landmark->lat) }}"/>
+                            @error('lat') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="address">lng</label>
-                            <textarea class="form-control" rows="4" name="lng" id="lng">{{ old('lng', $landmark->lng) }}</textarea>
+                            <label class="control-label" for="lng">Ilguma</label>
+                            <input required class="form-control @error('lng') is-invalid @enderror" type="text" name="lng" id="lng" value="{{ old('lng', $landmark->lng) }}"/>
+                            @error('lng') {{ $message }} @enderror
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="address">url</label>
-                            <textarea class="form-control" rows="4" name="url" id="url">{{ old('url', $landmark->url) }}</textarea>
+                            <label class="control-label" for="url">Svetainė</label>
+                            <input class="form-control @error('url') is-invalid @enderror" type="text" name="url" id="url" value="{{ old('url', $landmark->url) }}"/>
+                            @error('url') {{ $message }} @enderror
                         </div>
                         </div>
                     </div>

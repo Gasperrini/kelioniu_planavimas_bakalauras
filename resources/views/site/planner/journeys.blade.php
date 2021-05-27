@@ -6,7 +6,7 @@
     <div style="text-align:center">
         <h1>Mano kelionės</h1>
       </div>
-
+      @if(count($journeys)>0)
             <div>
             
                 <table class="table" id="bus_table" >
@@ -23,12 +23,19 @@
                               <td>
                                 @csrf
                                 <button type="submit" id="choose"><a href="{{ route('journey.show', $journey->slug) }}">Plačiau</a></button>
-                                <button>Atsisiųsti kelionę</button></th>
-                      </tr>
+                      
+                                @csrf
+                                <button type="submit" id="choose"><a href="{{ route('journey.delete', $journey->id) }}">Pašalinti</a></button>
+                      </th>
                     </tbody>    
                     @endforeach
                 </table>
             </div>
+            @else
+            <div style="text-align:center">
+        <h3>Dar nesate sukūrę savo kelionės..</h1>
+      </div>
+      @endif
 
 
 @stop
