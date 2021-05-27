@@ -23,7 +23,7 @@ class CreateRouteTable extends Migration
             $table->string('start_time');
             $table->string('end_time');
             $table->string('url', 2083)->nullable();
-            $table->unsignedBigInteger('transport')->index();
+            $table->BigInteger('transport')->index();
             $table->foreign('transport')->references('id')->on('transport');
             $table->timestamps();
         });
