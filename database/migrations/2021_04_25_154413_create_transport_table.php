@@ -14,7 +14,7 @@ class CreateTransportTable extends Migration
     public function up()
     {
         Schema::create('transport', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigInteger('id');
             $table->string('name')->unique();
             $table->string('slug')->unique()->nullable();
             $table->string('address')->nullable();

@@ -45,6 +45,7 @@ class TransportController extends BaseController
         $transport = json_decode($response->body());
             foreach($transport as $trans){
                 $transport = new Transport;
+                $transport->id = $trans->id;
                 $transport->name = $trans->name;
                 $transport->address = $trans->address;
                 $transport->email = $trans->email;
