@@ -23,7 +23,6 @@
                               <td>{{ $journey->end_point }}</th>
                               <td>{{ str_replace("public/files/","",$journey->path) }}</th>
                               <?php $val = str_replace("public/files/","",$journey->path); ?>
-                              <td><button><a href="{{ route('journey.download', ['file_name' => $val]) }}" >Atsisiųsti </a></button></th>
                               <td><button><a href="{{ route('journey.pdf', $journey->slug) }}">Atsisiųsti PDF failą</a></button></td>
                       </tr>
                     </tbody>    
