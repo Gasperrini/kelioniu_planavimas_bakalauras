@@ -67,7 +67,7 @@
                                 <input type="hidden" class="form-control" name="city" id="city" value="city">
                                 <input type="hidden" class="form-control" name="country" id="country" value="country">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-success btn-block"> Sign Up </button>
+                                <button type="submit" class="btn btn-success btn-block"> Registruotis </button>
                             </div>
                         </form>
                     </article>

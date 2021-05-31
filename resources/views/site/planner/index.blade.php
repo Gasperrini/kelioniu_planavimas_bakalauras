@@ -19,10 +19,6 @@
         init1();
         init2();
 
-        /*document.getElementById("auto").addEventListener("click", () => {
-          travelMode = google.maps.TravelMode.DRIVING;
-        });*/
-
         document.getElementById("auto").addEventListener("click", () => {
           calculateAndDisplayRoute(directionsService, directionsRenderer);
         });
@@ -61,8 +57,6 @@
           ?>
         ];
 
-
-
         createRouteMarkers(route_markers, map);
         
         document.getElementById("accommodation").addEventListener("click", () => {
@@ -72,10 +66,6 @@
         document.getElementById("landmark").addEventListener("click", () => {
           createLandMarkers(land_markers, map);
         });
-        
-        
-
-        
 }
 
       function createRouteMarkers(markers, map){
@@ -224,52 +214,11 @@
             }
         }
 
-        
-
-function duplicate() {
-    var original = document.getElementById('duplicater' + i);
-    var clone = original.cloneNode(true); // "deep" clone
-    clone.id = "duplicetor" + ++i; // there can only be one element with an ID
-    clone.onclick = duplicate; // event handlers are not cloned
-    original.parentNode.appendChild(clone);
-}
-
-var i = 0;
-        function addJourney() {
-            var nav = document.getElementById('template' + i);
-            var clone = nav.cloneNode(true); // "deep" clone
-            clone.id = "template" + ++i; // there can only be one element with an ID
-            clone.onclick = duplicate; // event handlers are not cloned
-            nav.parentNode.appendChild(clone);
-        }
-
     </script>
 
 
     <h2 style="text-align:center">Planuokite savo kelionę!</h2>
-
-            <!--@foreach($route as $rot)
-                        <tr>    
-                            <td>{{$rot->name}}</th>
-                            <td>{{$rot->start_point}}</td>
-                            <td>{{$rot->start_time}}</th>
-                            <td>{{$rot->end_time}}</th>
-                            <td><form>
-                                @csrf
-                                <button><a href="https://www.autobusubilietai.lt/checkout/19633e8b-c44f-414e-8d74-651d0544fb92">Pirkti bilietus</a></button>
-                            </form></th>
-                        </tr>
-                        <br>
-                        @foreach($segments as $segment)
-                        @if($segment->route_id == $rot->route_code)
-                        <tr>    
-                            <td>{{$segment->name}}</th>
-                            <td>{{$segment->arrival_time}}</td>
-                        </tr>
-                        <br>
-                        @endif
-                    @endforeach
-                    @endforeach   -->          
+         
     <?php  
 
     $name="";
@@ -277,9 +226,9 @@ var i = 0;
     $end_value="";
     $start_time="";
     $end_time="";
+    $todayDate = date("Y-m-d");
     ?>
 
-    <!--<div id="template0">-->
             <div id="info_form" class="d-flex justify-content-center" style="margin-top: 20px; text-align:center">
                 <form method="get" action="{{ route('planner.generated') }}">
                 
@@ -290,14 +239,14 @@ var i = 0;
                 @if(isset($_GET['start_time']))
                     <?php $start_time = $_GET['start_time']; ?>
                 @endif
-                <input type="date" class="form-control mb-2 mr-sm-2" id="start_time" name="start_time" value="{{$start_time}}" placeholder="Kelionės pradžia" >
+                <input type="date" class="form-control mb-2 mr-sm-2" id="start_time" min="{{$todayDate}}" name="start_time" value="{{$start_time}}" placeholder="Kelionės pradžia" >
       </div>
       <div class="col">
                 <label for="end_time">Pabaigos data:</label>
                 @if(isset($_GET['end_time']))
                     <?php $end_time = $_GET['end_time']; ?>
                 @endif
-                <input type="date" class="form-control mb-2 mr-sm-2" id="end_time" name="end_time" value="{{$end_time}}" placeholder="Kelionės pabaiga" >
+                <input type="date" class="form-control mb-2 mr-sm-2" id="end_time" min="{{$todayDate}}" name="end_time" value="{{$end_time}}" placeholder="Kelionės pabaiga" >
       </div>
       </div>    
 
@@ -326,10 +275,6 @@ var i = 0;
       </div>
       </div>
             </div>
-
-            <!--<div id="form" class="d-flex justify-content-center" style="margin-top: 80px; text-align:center">
-              <button id="submit" class="btn btn-primary mb-2">Ieškoti</button>
-            </div>-->
 
                     <div id="map"></div>
                     <div id="main_form">
@@ -398,11 +343,7 @@ var i = 0;
                       <tr>    
                               <td>{{$acc->name}}</th>
                               <td>{{$acc->address}}</th>
-                              <td><form method="get" action="{{ route('planner.generated') }}">
-                                @csrf
-                                <button><a href="{{$acc->url}}" target="_blank">Rezervuoti</a></button>
-                               
-                            </form></th>
+                              <td><button><a href="{{$acc->url}}" target="_blank">Rezervuoti</a></button></th>
                       </tr>
                     @endforeach
                     </tbody>    
@@ -427,21 +368,12 @@ var i = 0;
                       <tr>    
                               <td>{{$land->name}}</th>
                               <td>{{$land->address}}</th>
-                              <td><form method="get" action="{{ route('planner.generated') }}">
-                                @csrf
-                                <input type="hidden"  name="route_code" value="{{$rot->route_code}}">
-                                <input type="hidden"  name="start" value="{{$rot->start_point}}">
-                                <input type="hidden"  name="end" value="{{$rot->end_point}}">
-                                <button><a href="{{$land->url}}" target="_blank">Plačiau</a></button>
-                               
-                            </form></th>
+                              <td><button><a href="{{$land->url}}" target="_blank">Plačiau</a></button></th>
                       </tr>
                     @endforeach
                     </tbody>    
                 </table>
             </div>     <br>
-
-      <!--</div>-->
       
       <div style="text-align:center">
       <form method="post" action="{{ route('planner.confirmed') }}" enctype="multipart/form-data">

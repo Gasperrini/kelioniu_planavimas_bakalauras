@@ -23,8 +23,6 @@
                               <td>
                                 @csrf
                                 <button type="submit" id="choose"><a href="{{ route('journey.show', $journey->slug) }}">Plačiau</a></button>
-                      
-                                @csrf
                                 <button type="submit" id="choose"><a href="{{ route('journey.delete', $journey->id) }}">Pašalinti</a></button>
                       </th>
                     </tbody>    

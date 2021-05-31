@@ -24,15 +24,6 @@
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="widgets-wrap d-flex justify-content-end">
-                        <!--<div class="widget-header">
-                            <a href="{{ route('checkout.cart') }}" class="icontext">
-                                <div class="icon-wrap icon-xs bg2 round text-secondary"><i
-                                        class="fa fa-globe"></i></div>
-                                <div class="text-wrap">
-                                    <small>{{ $cartCount }} items</small>
-                                </div>
-                            </a>
-                        </div>-->
                         @guest
                             <div class="widget-header">
                                 <a href="{{ route('login') }}" class="ml-3 icontext">

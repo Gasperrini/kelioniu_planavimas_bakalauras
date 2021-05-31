@@ -28,7 +28,6 @@ class PlannerController extends Controller
         $accommodations = DB::table('accommodation')->get();
         $landmarks = DB::table('landmark')->get();
         $transports = DB::table('transport')->get();
-        //$route = $this->routeRepository->findBySlug($slug);
     
         return view('site.planner.index', compact('route', 'segments', 'accommodations', 'landmarks', 'transports'));
     }
@@ -42,18 +41,12 @@ class PlannerController extends Controller
         $accommodations = DB::table('accommodation')->where('address', 'LIKE', "%{$end_point}%")->get();
         $landmarks = DB::table('landmark')->where('address', 'LIKE', "%{$end_point}%")->get();
         $transports = DB::table('transport')->get();
-        //$route = $this->routeRepository->findBySlug($slug);
     
         return view('site.planner.index', compact('route', 'segments', 'accommodations', 'landmarks', 'transports'));
     }
 
     public function confirmed(Request $request)
     {
-        /*$route = DB::table('route')->get();
-        $segments = DB::table('segments')->get();
-        $accommodations = DB::table('accommodation')->get();
-        $landmarks = DB::table('landmark')->get();*/
-        //$route = $this->routeRepository->findBySlug($slug);
         if($request->hasFile('bus_file')){
             $bus_name = $request->file('bus_file')->getClientOriginalName();
             $bus_path = $request->file('bus_file')->store('public/files');
@@ -86,7 +79,6 @@ class PlannerController extends Controller
                     $journey->land_file_name = $land_name;
                     $journey->land_path = $land_path;
                 }
-                //$journey->addMediaFromRequest('document')->toMediaCollection();
                 $journey->save();
     
         return view('site.planner.confirmed');
