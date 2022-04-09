@@ -1,3 +1,4 @@
+Svetainę galima pasiekti adresu: http://kelioniuplanavimas.herokuapp.com/
 Sukurta informacinė sistema, kuri apjungia visas pagrindines kelionių planavimo funkcijas, įskaitant
 kelionių bilietų rezervavimą, nakvynės rezervaciją, transporto rezervaciją ir leidžia paprasčiau
 planuoti keliones.
